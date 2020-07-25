@@ -3,6 +3,7 @@ class User < ApplicationRecord
   
   has_many :likes
   has_many :comments
+  mount_uploader :image, ImageUploader
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -11,6 +12,7 @@ class User < ApplicationRecord
          
   validates :name, presence: true, length: { maximum: 50 }
   
+  # パスワードなしで設定変更するための記述
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
