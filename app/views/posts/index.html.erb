@@ -5,7 +5,13 @@
         <div class="card-header align-items-center d-flex">
           
           <%= link_to user_path(post.user), class: "no-text-decoration" do %>
-            <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
+            <%#= image_tag avatar_url(post.user), class: "post-profile-icon" %>
+            <% if post.user.profile_photo != nil %>
+              <img src=<%= post.user.profile_photo %> class = "post-profile-icon">
+            <% else %>
+              <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
+            <% end %>
+            
           <% end %>
           
           <%= link_to user_path(post.user), class: "black-color no-text-decoration",

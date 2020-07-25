@@ -3,7 +3,8 @@ class User < ApplicationRecord
   
   has_many :likes
   has_many :comments
-  mount_uploader :image, ImageUploader
+  
+  mount_uploader :profile_photo, ProfilePhotoUploader
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
